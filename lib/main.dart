@@ -1,4 +1,4 @@
-import 'package:exercise_flutter/views/splash_screen.dart';
+import 'package:exercise_flutter/views/nav_screens/bottom_nav.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
       title: "exercise_flutter",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.green,
-          iconTheme: const IconThemeData(color: Colors.green)),
-      home: const SplashScreen(),
+        primarySwatch: Colors.green,
+        iconTheme: const IconThemeData(color: Colors.green),
+      ),
+      home: const BottomNavBar(),
     );
   }
 }
