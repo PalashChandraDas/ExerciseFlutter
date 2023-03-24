@@ -1,6 +1,9 @@
-import 'package:exercise_flutter/views/nav_screens/bottom_nav.dart';
+import 'package:exercise_flutter/utils/di.dart';
+import 'package:exercise_flutter/views/home_screen.dart';
+import 'package:exercise_flutter/views/marquee_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,14 +17,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: "exercise_flutter",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
         iconTheme: const IconThemeData(color: Colors.green),
       ),
-      home: const BottomNavBar(),
+      initialBinding: MyDI(),
+      initialRoute: "/",
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => const MarqueeScreen(),
+        ),
+        GetPage(
+          name: HomeScreen.routeName,
+          page: () => const HomeScreen(),
+        )
+      ],
     );
   }
 }
