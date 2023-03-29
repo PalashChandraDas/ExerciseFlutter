@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:exercise_flutter/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
   static const String routeName = "/homescreen";
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   final HomeController _homeController = Get.put(HomeController());
 
   @override
@@ -19,13 +15,16 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(_homeController.appBarTitle),
       ),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.add),
-      ),
-      body: const Center(
-        child: Text("Home"),
-      ),
+
+      body: Obx(() => ListView.builder(
+        itemCount: _homeController.postList.length,
+        itemBuilder:(c, i) {
+          return ListTile(
+            title: Text(_homeController.postList[i].title.toString()),
+          );
+
+        },)),
     );
   }
+
 }

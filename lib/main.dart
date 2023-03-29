@@ -1,7 +1,6 @@
 import 'package:exercise_flutter/utils/di.dart';
+import 'package:exercise_flutter/views/firebase_data.dart';
 import 'package:exercise_flutter/views/home_screen.dart';
-import 'package:exercise_flutter/views/marquee_screen.dart';
-import 'package:exercise_flutter/views/shared_pref.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,11 +29,11 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/',
-          page: () => SharedPref(),
+          page: () => HomeScreen(),
         ),
         GetPage(
           name: HomeScreen.routeName,
-          page: () => const HomeScreen(),
+          page: () => const FirebaseData(),
         )
       ],
     );
