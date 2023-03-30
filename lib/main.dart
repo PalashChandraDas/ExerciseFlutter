@@ -1,6 +1,7 @@
 import 'package:exercise_flutter/utils/di.dart';
 import 'package:exercise_flutter/views/firebase_data.dart';
 import 'package:exercise_flutter/views/home_screen.dart';
+import 'package:exercise_flutter/views/practice_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,11 +26,10 @@ class MyApp extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.green),
       ),
       initialBinding: MyDI(),
-      initialRoute: "/",
       getPages: [
         GetPage(
           name: '/',
-          page: () => HomeScreen(),
+          page: () => PracticeScreen(),
         ),
         GetPage(
           name: HomeScreen.routeName,

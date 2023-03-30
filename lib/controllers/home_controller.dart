@@ -14,12 +14,15 @@ class HomeController extends GetxController{
   }
 
   Future<void> _fetchPostData() async {
-    var myUrl = "https://jsonplaceholder.typicode.com";
+    var myUrl = "https://jsonplaceholder.typicode.com"; //base url
+    // var myUrl = "https://randomuser.me"; //base url
     Dio dio = Dio(BaseOptions(
-      baseUrl: myUrl
+      baseUrl: myUrl,
+      // queryParameters: {'result': 3} //parameter
     ));
-    var response = await dio.get("/posts");
-    
+    var response = await dio.get('/posts'); //api end_point/path
+    // var response = await dio.get('/api/'); //api end_point/path
+
     if(response.statusCode == 200){
       debugPrint("-------------------");
       debugPrint("HTTP status code: ${response.statusCode}");
@@ -30,14 +33,15 @@ class HomeController extends GetxController{
       debugPrint("----------");
 
       var myPostData = response.data as List;
-      debugPrint("Data: $myPostData");
+      debugPrint("Data: $myPostData"); //read data
 
       var newList = myPostData.map((e) => JsonHolder.fromJson(e)).toList();
       postList.addAll(newList);
-      debugPrint("New List length: ${newList.length}");
+      debugPrint("New List size: ${newList.length}");
+      debugPrint("<----Successfully loaded!!!");
 
     } else {
-      debugPrint("Failed to load data");
+      debugPrint("Failed to load data!");
     }
 
   }
