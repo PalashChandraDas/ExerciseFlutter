@@ -13,15 +13,6 @@ class PracticeScreen extends StatelessWidget {
         title: const Text("API"),
         centerTitle: true,
       ),
-      body: Obx(() => ListView.builder(
-        itemCount: _practiceController.postList.length,
-        itemBuilder: (_, i) {
-          return ListTile(
-            title: Text(_practiceController.postList[i].title.toString()),
-            subtitle: Text(_practiceController.postList[i].userId.toString()),
-          );
-        },
-      )),
     );
   }
 }
