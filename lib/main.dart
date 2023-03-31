@@ -28,13 +28,13 @@ class MyApp extends StatelessWidget {
       ),
       initialBinding: MyDI(),
       builder: EasyLoading.init(),
+      initialRoute: HomeScreen.routeName,
       getPages: [
         GetPage(
-          name: '/',
-          page: () => HomeScreen(),
+          name: '/', page: () => HomeScreen(),
         ),
         GetPage(
-          name: HomeScreen.routeName,
+          name: FirebaseData.routeName,
           page: () => const FirebaseData(),
         )
       ],

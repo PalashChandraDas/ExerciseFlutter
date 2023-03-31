@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:exercise_flutter/controllers/home_controller.dart';
 import 'package:get/get.dart';
-
 import '../constant.dart';
 
 
